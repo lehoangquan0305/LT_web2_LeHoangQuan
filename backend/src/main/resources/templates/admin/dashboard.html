@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin:0; background:#f4f6f9; color:#111827; }
+        .topbar { background:#111827; color:white; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; }
+        .container { padding:24px; display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+        .card { background:white; padding:20px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+        .card h3 { margin:0 0 8px; } .card p { margin:0; color:#6b7280; }
+        .btn { display:inline-block; padding:10px 14px; background:#2563eb; color:white; border:none; border-radius:8px; text-decoration:none; cursor:pointer; }
+        .danger { background:#dc2626; }
+        .stats { font-size: 1.8rem; font-weight:bold; }
+    </style>
+</head>
+<body>
+<div class="topbar">
+    <div>
+        <h2 style="margin:0;">SportShop Admin</h2>
+        <div>Xin chào, <strong th:text="${username}"></strong></div>
+    </div>
+    <form method="post" action="/admin/logout">
+        <button class="btn danger" type="submit">Đăng xuất</button>
+    </form>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h3>Tổng đơn hàng</h3>
+        <div class="stats">128</div>
+        <p>Đơn đang xử lý và đã hoàn tất</p>
+    </div>
+    <div class="card">
+        <h3>Khách hàng</h3>
+        <div class="stats">1,240</div>
+        <p>Số khách hàng đã đăng ký</p>
+    </div>
+    <div class="card">
+        <h3>Sản phẩm</h3>
+        <div class="stats">86</div>
+        <p>Danh mục đang bán</p>
+    </div>
+    <div class="card">
+        <h3>Doanh thu</h3>
+        <div class="stats">$24.8k</div>
+        <p>Trong tháng này</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h3>Quản lý nhanh</h3>
+        <p>Danh sách chức năng admin sẽ mở rộng sau này.</p>
+        <br>
+        <a class="btn" href="/api/auth/login">Xem API đăng nhập</a>
+    </div>
+    <div class="card">
+        <h3>Trạng thái hệ thống</h3>
+        <p>Backend đang chạy ổn định.</p>
+        <p>Đã kết nối module admin cơ bản.</p>
+    </div>
+</div>
+</body>
+</html>
